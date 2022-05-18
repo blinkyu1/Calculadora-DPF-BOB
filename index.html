@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Calculadora DPF</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="content">
+        <h3 class="text-center">Calculadora DPF</h3>
+        <hr />
+        <form onsubmit="return false">
+          <div class="row">
+            <div class="col-md-6">
+              <label class="control-label">Tipo Moneda:</label>
+
+              <select
+                id="moneda"
+                ng-model="vm.moneda"
+                ng-options="option.symbol for option in vm.monedas"
+                ng-change="vm.resetmoneda()"
+                class="moneda form-control"
+                aria-invalid="false"
+                style=""
+              >
+                <option label="Bs." value="object:16" selected="selected"
+                  >Bs.</option
+                >
+                <option label="$us." value="object:17">$us.</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="control-label">Monto:</label>
+              <input
+                class="monto form-control"
+                type="number"
+                placeholder="Capital"
+              />
+            </div>
+            <div class="col-md-6">
+              <label class="control-label">Plazo:</label>
+
+              <select
+                id="Plazo"
+                ng-model="vm.plazo"
+                ng-options="option.symbol for option in vm.plazo"
+                ng-change="vm.resetplazo()"
+                class="montante form-control"
+                aria-invalid="false"
+              >
+                <option
+                  label="Seleccionar"
+                  value="object:Seleccionar"
+                  selected="selected"
+                  >Seleccionar</option
+                >
+                <option label="30" value="object:30">30</option>
+                <option label="60" value="object:60">60</option>
+                <option label="90" value="object:90">90</option>
+                <option label="180" value="object:180">180</option>
+                <option label="360" value="object:360">360</option>
+                <option label="720" value="object:720">720</option>
+                <option label="1080" value="object:1080">1080</option>
+                <option label="mas de 1080" value="object:1081"
+                  >mas de 1080</option
+                >
+              </select>
+            </div>
+          </div>
+
+          <hr />
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <input
+                type="submit"
+                class="btn btn-primary btn-block btn-lg simulaUm"
+                value="Calcular"
+              />
+            </div>
+          </div>
+        </form>
+        <hr />
+        <div class="row resultados">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Monto</th>
+                  <th>Interes</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Bs <span class="apMont">.</span></td>
+                  <td>% <span class="apTas">.</span></td>
+                  <td>Bs <span class="apTot">.</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+            <p class="m-0" >Simulación referencial sujeta a cambios.</p>                                    
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/funciones.js"></script>
+    <script type="text/javascript" src="./js/interes.json"></script>
+
+  
+  </body>
+  <p><a href="https://servicios.bancosol.com.bo/reclamosv2/PuntoReclamoWebcer.php" title="Punto de Reclamo"><img alt="Punto de Reclamo" id="show_client" src="https://www.bancosol.com.bo/sites/default/files/personas/punto-circular-editable-01.png" ></a></p>
+
+</html>
